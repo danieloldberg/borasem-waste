@@ -44,36 +44,35 @@ Borås Energi och Miljö Waste Collection
 Example
 ====
 
-```
-import asyncio
-import aiohttp
-from borasem_waste import auth,borasem
+.. code-block:: language
 
-valid_address = 'Validated address from async_get_address()'
-valid_address = 'Any address to search on.'
+    
+    import asyncio
+    import aiohttp
+    from borasem_waste import auth,borasem
 
-async def main():
+    valid_address = 'Validated address from async_get_address()'
+    valid_address = 'Any address to search on.'
 
-    async with aiohttp.ClientSession() as session:
-        
-        authObj = auth.Auth(session)
-        api = borasem.BorasEM(authObj)
+    async def main():
 
-        # Get Waste Schedule
-        schedule = await api.async_get_schedule(valid_address)
+        async with aiohttp.ClientSession() as session:
+            
+            authObj = auth.Auth(session)
+            api = borasem.BorasEM(authObj)
 
-        # Print states
-        for scheduleEntry in schedule:
-            print(f"The entry {scheduleEntry.containerId} is being picked up at {scheduleEntry.NextWastePickup}")
+            # Get Waste Schedule
+            schedule = await api.async_get_schedule(valid_address)
 
-        # Get Waste Schedule
-        addressList = await api.async_get_address('Häglared Lunden 2')
+            # Print states
+            for scheduleEntry in schedule:
+                print(f"The entry {scheduleEntry.containerId} is being picked up at {scheduleEntry.NextWastePickup}")
 
-        # Print states
-        for address in addressList:
-            print(address)
+            # Get Waste Schedule
+            addressList = await api.async_get_address('Häglared Lunden 2')
 
-asyncio.run(main())
+            # Print states
+            for address in addressList:
+                print(address)
 
-```
-
+    asyncio.run(main())
