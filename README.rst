@@ -30,20 +30,50 @@
 |
 
 =============
-borasem-waste
+Borås Energi och Miljö Waste Collection
 =============
 
 
-    Add a short description here!
+    Simple package to get the schedule for upcoming waste pickups.
 
 
-A longer description of your project goes here...
 
 
 .. _pyscaffold-notes:
 
-Note
+Example
 ====
 
-This project has been set up using PyScaffold 4.5. For details and usage
-information on PyScaffold see https://pyscaffold.org/.
+`
+import asyncio
+import aiohttp
+from borasem_waste import auth,borasem
+
+valid_address = 'Validated address from async_get_address()'
+valid_address = 'Any address to search on.'
+
+async def main():
+
+    async with aiohttp.ClientSession() as session:
+        
+        authObj = auth.Auth(session)
+        api = borasem.BorasEM(authObj)
+
+        # Get Waste Schedule
+        schedule = await api.async_get_schedule(valid_address)
+
+        # Print states
+        for scheduleEntry in schedule:
+            print(f"The entry {scheduleEntry.containerId} is being picked up at {scheduleEntry.NextWastePickup}")
+
+        # Get Waste Schedule
+        addressList = await api.async_get_address('Häglared Lunden 2')
+
+        # Print states
+        for address in addressList:
+            print(address)
+
+asyncio.run(main())
+
+`
+
