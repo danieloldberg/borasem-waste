@@ -52,7 +52,7 @@ Example
     from borasem_waste import auth,borasem
 
     valid_address = 'Validated address from async_get_address()'
-    valid_address = 'Any address to search on.'
+    search_address = 'Any address to search on.'
 
     async def main():
 
@@ -69,7 +69,7 @@ Example
                 print(f"The entry {scheduleEntry.containerId} is being picked up at {scheduleEntry.NextWastePickup}")
 
             # Get Waste Schedule
-            addressList = await api.async_get_address('Häglared Lunden 2')
+            addressList = await api.async_get_address(search_address)
 
             # Print states
             for address in addressList:
