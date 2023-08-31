@@ -24,9 +24,9 @@ class BorasEM:
         """Initialize the API and store the auth so we can make requests."""
         self.auth = auth
 
-    async def async_get_schedule(self) -> List[wastepickup.WastePickup]:
+    async def async_get_schedule(self, address: str) -> List[wastepickup.WastePickup]:
         """Return the schedule of the containers."""
-        resp = await self.auth.request("get", (borasem_const.WASTE_PATH + "/" + borasem_const.SCHEDULE_PATH + "?" + borasem_const.ADDRESS_PARAM + "=Häglared Lunden 2, Dalsjöfors (44195547)"))
+        resp = await self.auth.request("get", (borasem_const.WASTE_PATH + "/" + borasem_const.SCHEDULE_PATH + "?" + borasem_const.ADDRESS_PARAM + "=" + address))
         resp.raise_for_status()
         response = await resp.json()
         return [wastepickup.WastePickup(schedule_data, self.auth) for schedule_data in response['RhServices']]
