@@ -3,7 +3,7 @@ import aiohttp
 class Auth:
     """Class to make requests."""
 
-    def __init__(self, websession: aiohttp.ClientSession, host: str):
+    def __init__(self, websession: aiohttp.ClientSession, host: str='https://kundportal.borasem.se/EDPFutureWeb'):
         """Initialize the auth."""
         self.websession = websession
         self.host = host
