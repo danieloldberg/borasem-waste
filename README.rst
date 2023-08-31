@@ -44,7 +44,7 @@ Borås Energi och Miljö Waste Collection
 Example
 ====
 
-`
+```
 import asyncio
 import aiohttp
 from borasem_waste import auth,borasem
@@ -75,5 +75,5 @@ async def main():
 
 asyncio.run(main())
 
-`
+```
 
