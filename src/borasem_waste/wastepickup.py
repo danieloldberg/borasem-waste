@@ -1,5 +1,5 @@
 from typing import List
-import auth
+from . import auth
 
 class WastePickup:
     """Class that represents a Waste pickup in the Borås Energi och Miljö API."""
