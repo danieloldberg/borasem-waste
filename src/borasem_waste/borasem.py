@@ -36,7 +36,7 @@ class BorasEM:
         resp.raise_for_status()
         response = await resp.json()
         return [
-            wastepickup.WastePickup(schedule_data, self.auth)
+            wastepickup.WastePickup(schedule_data)
             for schedule_data in response["RhServices"]
         ]
 
