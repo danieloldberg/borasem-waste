@@ -12,7 +12,7 @@ class WastePickup:
     # Note: each property name maps the name in the returned data
 
     @property
-    def containerId(self) -> int:
+    def containerId(self) -> str:
         """Return the ID (Kärl X) of the container."""
         return self.raw_data["WasteType"]
 
