@@ -42,7 +42,7 @@ Borås Energi och Miljö Waste Collection
 .. _pyscaffold-notes:
 
 Example
-====
+=======
 
 .. code-block:: language
 
