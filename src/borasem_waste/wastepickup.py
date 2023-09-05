@@ -34,7 +34,7 @@ class WastePickup:
     @property
     def container_type(self) -> int:
         """Return the type of the containers."""
-        return self._raw_data["Designation"]
+        return self._raw_data["Description"]
 
     @property
     def is_active(self) -> bool:
