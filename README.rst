@@ -29,9 +29,9 @@
 
 |
 
-=============
+=======================================
 Borås Energi och Miljö Waste Collection
-=============
+=======================================
 
 
     Simple package to get the schedule for upcoming waste pickups.
