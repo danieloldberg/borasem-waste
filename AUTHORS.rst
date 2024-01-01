@@ -2,4 +2,4 @@
 Contributors
 ============
 
-* Daniel Oldberg <daniel.oldberg@atea.se>
+* Daniel Oldberg <daniel@danieloldbrg.se>
